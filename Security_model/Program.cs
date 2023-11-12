@@ -3,6 +3,18 @@
 namespace ConsoleApplication1;
 class Program
 {
+    public static void options()
+    {
+        Console.WriteLine("\n1. Добавить пользователя");
+        Console.WriteLine("2. Добавить файл");
+        Console.WriteLine("3. Выбрать пользователя");
+        Console.WriteLine("4. Получить доступ к файлам");
+        Console.WriteLine("5. Изменить права пользователей");
+        Console.WriteLine("6. Показать список пользователей");
+        Console.WriteLine("7. Показать список файлов");
+        Console.WriteLine("8. Выход");
+        Console.Write("Введите номер действия: ");
+    }
     public static void menu()
     {
         var files = new List<File>() {
@@ -19,35 +31,74 @@ class Program
             new User("Бобик", "Секретный", fileManager)
         };
 
-        
-
         UserManagment userManagment = new UserManagment(users);
         Console.WriteLine(userManagment.GetInfoAboutAllUsers());
 
-        Console.Write("Введите имя пользователя для входа: ");
-        var userName = Console.ReadLine();
-        var user = userManagment.GetUserByName(userName);
-
-        Console.Write("Введите название файла, к которому хотите получить доступ: ");
-        var fileName = Console.ReadLine();
-        Console.WriteLine(user.GetAccessToFile(fileName));
-
-        // Console.WriteLine(user.GetInfo());
-        // Console.WriteLine(user.GetAccessToFile("Файл1"));
-        // Console.WriteLine(user.GetAccessToFile("Файл2"));
-        // Console.WriteLine(user.GetAccessToFile("Файл3"));
-
-        // Console.WriteLine(user2.GetInfo());
-        // Console.WriteLine(user2.GetAccessToFile("Файл1"));
-        // Console.WriteLine(user2.GetAccessToFile("Файл2"));
-        // Console.WriteLine(user2.GetAccessToFile("Файл3"));
-
-        // user2.ChangeAccessLevel(user, "Конфинденциальный");
-        
-        // Console.WriteLine(user.GetInfo());
-        // Console.WriteLine(user.GetAccessToFile("Файл1"));
-        // Console.WriteLine(user.GetAccessToFile("Файл2"));
-        // Console.WriteLine(user.GetAccessToFile("Файл3"));
+        User currentUser = null;
+        string choise = "Хихи";
+        while (choise != "8")
+        {
+            options();
+            choise = Console.ReadLine();
+            switch(choise)
+            {
+                case "1":
+                    Console.Write("Введите имя пользователя: ");
+                    var userName = Console.ReadLine();
+                    Console.Write("Введите уровень доступа пользователя: ");
+                    var userAccess = Console.ReadLine();
+                    User user = new User(userName, userAccess, fileManager);
+                    userManagment.AddUser(user);
+                    Console.WriteLine("Успех\n");
+                    break;
+                case "2":
+                    Console.Write("Введите имя пользователя: ");
+                    var fileName = Console.ReadLine();
+                    Console.Write("Введите уровень доступа пользователя: ");
+                    var fileAccess = Console.ReadLine();
+                    File file = new File(fileName, fileAccess);
+                    fileManager.AddFile(file);
+                    Console.WriteLine("Успех\n");
+                    break;
+                case "3":
+                    Console.Write("Введите имя пользователя: ");
+                    var chooseUser = Console.ReadLine();
+                    currentUser = userManagment.GetUserByName(chooseUser);  
+                    Console.WriteLine($"Успешная смена пользователя, {currentUser.GetName()}\n"); 
+                    break;
+                case "4":
+                    if (currentUser != null)
+                    {
+                        Console.Write("Введите название файла: ");
+                        fileName = Console.ReadLine();
+                        Console.WriteLine(currentUser.GetAccessToFile(fileName));
+                    }
+                    else Console.WriteLine("Пользователь не выбран\n");
+                    break;
+                case "5":
+                    if (currentUser != null)
+                    {
+                        Console.Write("Введите имя пользователя, которому хотите изменить права: ");
+                        chooseUser = Console.ReadLine();
+                        user = userManagment.GetUserByName(chooseUser);
+                        Console.Write("Введите уровень допуска, на который хотите сменить права пользователю: ");
+                        var newLevel = Console.ReadLine();
+                        currentUser.ChangeAccessLevel(user, newLevel);
+                    }
+                    break;
+                case "6":
+                    Console.WriteLine(userManagment.GetInfoAboutAllUsers());
+                    break;
+                case "7":
+                    Console.WriteLine(fileManager.GetInfoAboutAllFiles());
+                    break;
+                case "8":
+                    break;
+                default: 
+                    Console.WriteLine("Что-то пошло не так, попробуйте снова\n");
+                    break;
+            }
+        }
     }
     static void Main(string[] args)
     {
