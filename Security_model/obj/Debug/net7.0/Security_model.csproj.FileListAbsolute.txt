@@ -1,0 +1,14 @@
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/obj/Debug/net7.0/Security_model.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/obj/Debug/net7.0/Security_model.AssemblyInfoInputs.cache
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/obj/Debug/net7.0/Security_model.AssemblyInfo.cs
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/obj/Debug/net7.0/Security_model.csproj.CoreCompileInputs.cache
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/bin/Debug/net7.0/Security_model
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/bin/Debug/net7.0/Security_model.deps.json
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/bin/Debug/net7.0/Security_model.runtimeconfig.json
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/bin/Debug/net7.0/Security_model.dll
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/bin/Debug/net7.0/Security_model.pdb
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/obj/Debug/net7.0/Security_model.dll
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/obj/Debug/net7.0/refint/Security_model.dll
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/obj/Debug/net7.0/Security_model.pdb
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/obj/Debug/net7.0/Security_model.genruntimeconfig.cache
+/Users/ilya/Documents/ИБиЗИ/Easy_model/Security_model/obj/Debug/net7.0/ref/Security_model.dll
